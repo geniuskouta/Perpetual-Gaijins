@@ -30,4 +30,22 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      rant:
+        title: "Title"
+        gaijintag: "Gaijintag"
+        content: "Content"
+    errors:
+      models:
+        rant:
+          attributes:
+            title:
+              blank: "cannot be blank!"
+              too_long: "is too long!"
+            gaijintag:
+              blank: "cannot be blank!"
+              too_long: "is too long!"
+            content:
+              blank: "cannot be blank!"
+              too_long: "cannot be too long! The word limit is set to 2200 words"

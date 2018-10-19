@@ -1,0 +1,41 @@
+<p style="color:grey">．┏━┓┏━┓┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈<br>
+┃ ┃┃ ┃ ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┏━┓┏┓<br>
+┃ ┃┃ ┃ ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┃//┃┗╋┓<br>
+┃ ┃┃ ┃ ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┃//┗━╋┛<br>
+┃ ┃┃ ┃ ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┃//////┃<br>
+┏┛ ┗┛ ┗┓ ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┃//┏━┛<br>
+┃ ＞ ┳ ＜ ┃ ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┃//┣━┓<br>
+┃ ◎┗┻┛◎ ┃☆★☆★<strong>Rants</strong>★☆★☆┈┈┈┈┗┳┛//┗┓ド<br>
+┃┏┓ ┏┓ ┃ ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┗┓//┏┛ キ<br>
+┗┫┣━┫┣━┛ ┈┈┈┈┈┈┈┈┈┈┈┈┈┏┛//┗┓<br>
+┗┫♥┗┫ ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ド┗┓//┏(⌒⌒)<br>
+┣┳┳〇 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈キ┗━┛ ＼／</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th colspan="2">Title</th>
+      <th colspan="2">Gaijintag</th>
+      <th class="text-center">Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @rants.each do |rant| %>
+      <tr>
+        <td colspan="2"><%= rant.title %></td>
+        <td colspan="2"><%= rant.gaijintag %></td>
+        <td><%= rant.content %></td>
+        <td class="text-right">
+          <%= link_to 'Reply', polymorphic_path(rant), :action => :new, :class => 'btn btn-link btn-xs'%>
+          <%= link_to 'Edit', edit_rant_path(rant), :class => 'btn btn-link btn-xs' %>
+          <%= link_to 'Delete', rant_path(rant), :class => 'btn btn-xs btn-danger',
+                          :method => :delete, :data => { :confirm => 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<p class="well" style="color:grey">Hi (^_-)-☆<br>Here you can read and talk about the first world Gaijin problems.<br>Everyday we are oppressed by microaggression at Japanese workplace and school.<br>Here you can post rants about what you experience.<br>Please enjoy your safe space.</p>
+<%= paginate @rants %>
+<br>
+<%= link_to 'New Rant', new_rant_path, :class => 'btn btn-primary' %>
+
